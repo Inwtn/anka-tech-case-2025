@@ -1,5 +1,4 @@
 "use client";
-
 import axios from "axios";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
@@ -81,7 +80,7 @@ export default function ClientesPage() {
             Ativo
           </label>
         </div>
-        <h1 className="text-3xl text-green-600">Teste Tailwind</h1>
+        <h1 className="text-4xl text-green-600 font-bold">Agora vai!</h1>
 
         <Button type="submit">Cadastrar</Button>
       </form>
