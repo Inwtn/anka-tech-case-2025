@@ -80,8 +80,6 @@ export default function ClientesPage() {
             Ativo
           </label>
         </div>
-        <h1 className="text-4xl text-green-600 font-bold">Agora vai!</h1>
-
         <Button type="submit">Cadastrar</Button>
       </form>
 

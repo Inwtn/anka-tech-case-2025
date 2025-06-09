@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
+@import "tailwindcss/preflight";
 @tailwind utilities;
+
+/* seus estilos extras, se houver */
 
 /* Pode vir seu CSS customizado abaixo */
 
