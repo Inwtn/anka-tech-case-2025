@@ -1,19 +1,29 @@
 import Fastify from "fastify";
+import cors from "@fastify/cors";
 import { clienteRoutes } from "./routes/cliente";
 
-const app = Fastify();
+async function bootstrap() {
+  const app = Fastify();
 
-app.register(clienteRoutes, { prefix: "/clientes" });
+  // Habilita CORS
+  await app.register(cors, {
+    origin: "*",
+  });
 
-// ✅ Rota GET /ativos direto aqui
-app.get("/ativos", async () => {
-  return [
-    { nome: "Bitcoin", valor: 120000 },
-    { nome: "Ethereum", valor: 9000 },
-    { nome: "Tesouro Direto", valor: 110 },
-  ];
-});
+  // Rotas
+  app.register(clienteRoutes, { prefix: "/clientes" });
 
-app.listen({ port: 3001 }).then(() => {
+  app.get("/ativos", async () => {
+    return [
+      { nome: "Bitcoin", valor: 120000 },
+      { nome: "Ethereum", valor: 9000 },
+      { nome: "Tesouro Direto", valor: 110 },
+    ];
+  });
+
+  // Inicia servidor
+  await app.listen({ port: 3001 });
   console.log("🚀 Servidor rodando em http://localhost:3001");
-});
+}
+
+bootstrap(); // executa
